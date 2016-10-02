@@ -1,0 +1,2 @@
+-Xms12288m -Xmx12288m -Xss512m -XX:NewRatio=2 -XX:-UseAdaptiveSizePolicy -XX:SurvivorRatio=1 -verbose:gc
+

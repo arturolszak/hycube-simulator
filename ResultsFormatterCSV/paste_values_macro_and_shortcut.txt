@@ -1,0 +1,21 @@
+If you want a shorter keyboard shortcut, the best way to do it is to create a macro that does the pasting for you, and then make sure that you assign a keyboard shortcut to the macro. For instance, create the following simple macro:
+
+Sub PasteVal()
+    Selection.PasteSpecial Paste:=xlValues
+End Sub
+
+Now, follow these steps:
+
+Press Alt+F8 to display the Macro dialog box.
+
+From the list of available macros, select the PasteVal macro you just created.
+
+Click on Options. Excel displays the Macro Options dialog box.
+
+In the Shortcut Key area, indicate the key you want used with the Ctrl key as your shortcut. For instance, if you want Ctrl+G to execute the macro, then enter a G in the Shortcut Key area.
+
+Click on OK to close the Macro Options dialog box.
+
+Click on Cancel to close the Macro dialog box.
+
+Now, whenever you want to paste values, all you need to do is press Ctrl+G, the macro is run, and the values in the Clipboard are pasted to the selected cell.

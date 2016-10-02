@@ -1,0 +1,4 @@
+for simulating large networks (large number of nodes):
+    - turn off secure RT
+    - turn off duplicate control
+    - turn off all caches (e.g. recently notifiec nodes, recently notify-processed nodes, message limits in time spans...)
