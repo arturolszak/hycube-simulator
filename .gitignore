@@ -28,3 +28,6 @@ target/
 hycube.log
 hycube_dev.log
 hycube_messages.log
+
+### HyCube Simulator
+results/
