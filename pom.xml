@@ -117,7 +117,7 @@
                                     If both the original and the shaded artifact should
                                     be installed/deployed to the repository, one can configure
                                     the plugin to attach the shaded artifact as a secondary artifact -->
-                                    <!--<shadedArtifactAttached>true</shadedArtifactAttached>-->
+                                    <shadedArtifactAttached>true</shadedArtifactAttached>
                                     <createDependencyReducedPom>true</createDependencyReducedPom>
                                     <dependencyReducedPomLocation>${project.build.directory}/dependency-reduced-pom.xml</dependencyReducedPomLocation>
                                 </configuration>
@@ -190,7 +190,14 @@
         <dependency>
             <groupId>net.hycube</groupId>
             <artifactId>hycube</artifactId>
+            <classifier>shaded</classifier>
             <version>MASTER-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
