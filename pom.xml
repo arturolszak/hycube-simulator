@@ -197,7 +197,7 @@
             <groupId>net.hycube</groupId>
             <artifactId>hycube</artifactId>
             <classifier>shaded</classifier>
-            <version>MASTER-SNAPSHOT</version>
+            <version>1.0.1</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
