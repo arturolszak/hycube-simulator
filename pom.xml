@@ -11,10 +11,33 @@
     <packaging>jar</packaging>
 
     <name>HyCube Simulator</name>
+    <description>HyCube Simulator is a container running multiple HyCube node instances, providing an interface for performing operations on individual nodes.</description>
     <url>http://www.hycube.net</url>
     <organization>
         <name>Artur Olszak</name>
     </organization>
+
+    <licenses>
+        <license>
+            <name>BSD 2-Clause License</name>
+            <url>http://www.opensource.org/licenses/BSD-2-Clause</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Artur Olszak</name>
+            <email>aolszak@gmail.com</email>
+            <organization>Artur Olszak</organization>
+            <organizationUrl>http://arturolszak.net</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/arturolszak/hycube-simulator.git</connection>
+        <developerConnection>scm:git:ssh://github.com:arturolszak/hycube-simulator.git</developerConnection>
+        <url>http://github.com/arturolszak/hycube-simulator</url>
+    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
