@@ -31,3 +31,5 @@ hycube_messages.log
 
 ### HyCube Simulator
 results/
+notes-local.txt
+src/documentation/simulator_doc_tex/tmp/**
