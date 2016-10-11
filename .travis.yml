@@ -1,27 +1,47 @@
 language: java
 
+env:
+  global:
+    - SONATYPE_USERNAME=hycube
+    # SONATYPE_PASSWORD:
+    - secure: "vR3YJRbVTnGs9eb3puFKPmShHJp2sQpF/v/nc7BlwFgdimgjbGQo2xrvV2KSsXaJODmL+CTP2XrDdEoheA+FukGub/nKrtoFbwKItBwgOKpY2OUTEAbKvpGrJvoOPNWm1DxXK6lVwTppi9oKl47z4tocdT42yLb1A3BaOzjZwRO9/4p8B3ZmuyJ/mWmmrNRLK9uEh6qQTn2txgAOMM/c/6g/+UL+9COBVVwLhsyQy00WXx/s2NZsBMctA1m+Opj4Ff8WUCVlqZ36x2NV/01bAxG7F12pJ+GhXBrl3wfEL7U9T9a2sz9rMgTIxvasAJrV43sE/ObEVqgk4PxTzUvcIxFr9blm4x/ayovpo2ISPYEwX6jInOmSCKTFtCpRdNAAROnl9oVGLMhtC7RDN+JI+22RWCfhc5bFKk1dRD89nMxUuYOj+o/yVAxjBLmD04y52wcfWfbPOezMeL+j170rM9OGbC1A6eTrj9KFN1cgbAioExBLNQozdl3fw3ZIMJLEZSUsQA8SgRx26z4+2zAhMQEOBOK25moRSiEKgCSEq3VG99IXVNgN5XVro682gwvHnuZXJqnJCkRTKc0jR20dFtSjbzT/ySTrz7ySDrdfVA/+lYGDnhoONpnsfxFQeZRldm0E53dh5zrtH1x2OEaef7LhrWXFuGDIQok9ek0ECLc="
+    # GPG_PASSPHRASE:
+    - secure: "pCV3sfXSzAGgVxxWmQ65OAhh7+qUWRcGgqOO0MovKmMs3iTKUW9arwQvMI5OP5ylOgqjTJ0fBmODH1W4VwCDC2Ae7HxO5E0exQ/p7kCmVzxTclhFikRcVbnfWD3VS5vIE8HPn0mCENTiVUv5py/cEk3wpIrrc5uGax07YtIRtCtoVcq4l15McFpykq693cxFG5bsXQGyU3TnMLPOhSEOe6XDRvdWkI7QGa/8cXGpCNUNDRFEKbHqGPUnjLwRAtWi3yAIEcCVFO577ColFAX2rMQm5HL3cIPVbbCyWJBOqbhuMhBR/eacOPR1RNNSfWrylTWvDctQmz6ISyEdRey+aLMnTUQkaNqaTGnapqY1QLzB0QIEU1DFLkAN2GQREAnoSXecPnG92wSXoE3zereS89PrcpFfDFZsnLI+t3Gk7EbVwE12bryu7RIX8+VKnqW6bAKKB7ooLBvxO7GKxZ2+AUC/ZH4dtHIYeo54Kb7cX/wMVxlIXxRiz7posjxnADzA7jYz2c/mp/sLaJRxTowALjhN/y7C5A3Fi8ck3vR9AlRf+uUNatsaNwv1iZw41u2xU5ci61FV3C2felxvvcmB5w9aB7XWNA0ztCGp3USPABwlcdhuhfhLgG2j38730JYDoUxWehMLV09qOxHfCYlmbdSpm7ZHBuq6wE/JuKNqwaw="
+    # ENCRYPTION_PASSWORD:
+    - secure: "Sj13nc2TtMYflsEKa8OoGAxFC+d4lSy+T7PNIj7XsityjVrHbeQr2elfrx5shFQzclCEz8B/9OdH1iKnV4hPE28f7dbg/fvMUvQbJyTRmq6CMut2udPb9O3e/gveUeYMaihk6gJvmuY0/iXyVUznjyS3x1jaSMYLsfvFAqIjbc8INqF8j1sWk51+ZHe3SoS5/DH2g3nCI2noBQF+iWtE+SgVMXBKAc99ccwG+3OBlbn6bnpgGK7Hko8L8hd4cvMsLVyO+p+DwFB++H4147NsC5IcByNK4GHpTtt2OIuXKqTVJjMGcqFH1huO3Bp2G6unNjVDR8t2rRgSRQeGsjn2uItHgOdKDa02LwK6gnShMsKUvSUv0hxSsRltlPFlp4Zs0OYmG6sYrxAyfqD1Xa4DK44hP+dJZ16MLyqG4DNd8OnOea079qUaZKexPe9SIG4FHC4zZ7hjaCMLcVEQwPhpvYYlyYu6KpCeHwRcs1wi1sL1PQ4wD3pAzZC7OZKrTbDujfUOera4YYMkhaABhpQKm3bHlaUQ/2LJ0x7XwBDnOWum6rjpm73Zn+ctzkY/Z/jzRfhj6FKuhqf7yHT8OZR5ShYP06xkhltZcyhOMJAFbdtcpIGnKjCZqZeHVrGore2OgRFW9luIgDYlxFJFKOEJ1AFW8vkaPdX7yQuLzmLfsMQ="
+
 jdk:
   - oraclejdk8
   - oraclejdk7
   - openjdk7
   - openjdk6
 
-# for tags (and releases), use the tag name as the development version, and use the branch name with "-SNAPSHOT" suffix otherwise as the development version and release version:
 before_install:
-  - test "$TRAVIS_TAG" = "" && echo "Tag is not set -> this is a snapshot version" || echo "Tag is set -> the tag name is the version"
-  - test "$TRAVIS_TAG" = "" && mvn versions:set -DnewVersion="$TRAVIS_BRANCH-SNAPSHOT" || mvn versions:set -DnewVersion="$TRAVIS_TAG"
+  - bash .travis/update_version.sh
+  - bash .travis/decrypt_keys.sh
+  - ls -l
 
 install: true
 
-script: mvn clean verify -P shade,sources,javadoc -Djava.version=1.6
+script: bash .travis/build.sh
+
+after_success: bash .travis/remove_keys.sh
+
+after_failure: bash .travis/remove_keys.sh
 
 deploy:
   provider: releases
   api_key:
     secure: vB0d2RdSz/o1qy56tqM+/vbAB7zpIJkYU/TWHhXYUbYDEEcPlseY1hpRYGSN09x0LHBLNpZSxfVPdwAagoAVWMC7YlSSJoV1W2vwicleILEywxGkZs0oB2xf200W78l43iYdnwWZa/PyihcsT+zWffiX3l0Th26Rs4AuPtWyMbBSABi1js0sR3Y036WBUF04NXaTig6fvvTZ+FEGLrRDTH6R+td2VJ4V7FlUV1FBMt3hMUfx0q3QFxdg1y5EQWPPXu3PFCcXKsU/ckK63ghJikn8N+R6Z9mPzkxbQZkuLbufAWww/a0BNc+UoyTbAbx3e5aMwNo6xyaymyKYDYdPCuGvddd1hgSMh+fDCxraXQLxemsT+fcHtc1ALrYc+ITtFGqagyS3zaodO+Jwvh7q13QRIjYyNVP76ivD7OBcWLvaVEe+AHcHudnocgBq58KGcPTXc9EaEdehdczmHE5lhEgkyuLAeieVmkX5kQvT0ciHv3BSiHTA2B5kjYy0+KvB8g0srr7ifBnT/d7IVL2NDoT8EntS2ZFrkUY1Dm/lsrm4Ho9e/FcZBZbPDsC+GAksUN6b96F438lWjUGHNM95KB9Ohno0+MCemD7onKU0ZM1x/K7CWez7wUp0gx0UQ8mARYvetp5BEBw/aD+L6Ms0ybcMVVlUqa9WcF8e36nssMs=
   file_glob: true
-  file: /home/travis/build/arturolszak/hycube-simulator/target/hycube-simulator*.jar
+  file:
+    - /home/travis/build/arturolszak/hycube-simulator/target/hycube-simulator*.jar
+    - /home/travis/build/arturolszak/hycube-simulator/documentation/*
   skip_cleanup: true
   on:
     tags: true
     jdk: oraclejdk8
+
+after_deploy:
+
+after_script: bash .travis/clean_after_script.sh
