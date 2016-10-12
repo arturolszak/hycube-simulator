@@ -304,7 +304,7 @@
             <groupId>net.hycube</groupId>
             <artifactId>hycube</artifactId>
             <classifier>shaded</classifier>
-            <version>1.0.1</version>
+            <version>1.0.2</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
