@@ -131,6 +131,42 @@
             </build>
         </profile>
 
+        <profile>
+            <id>timestamp-snapshots</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <maven.build.timestamp.format>yyyyMMdd.HHmmss</maven.build.timestamp.format>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <version>1.12</version>
+                        <executions>
+                            <execution>
+                                <id>regex-property</id>
+                                <goals>
+                                    <goal>regex-property</goal>
+                                </goals>
+                                <configuration>
+                                    <name>timestampedVersion</name>
+                                    <value>${project.version}</value>
+                                    <regex>-SNAPSHOT</regex>
+                                    <replacement>-${maven.build.timestamp}-1</replacement>
+                                    <failIfNoMatch>false</failIfNoMatch>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+                <!--suppress MavenModelInspection -->
+                <finalName>${project.artifactId}-${timestampedVersion}</finalName>
+            </build>
+        </profile>
+
     </profiles>
 
     <build>
